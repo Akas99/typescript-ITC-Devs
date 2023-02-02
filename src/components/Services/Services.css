@@ -1,0 +1,28 @@
+.swiper {
+    padding: 0 0 80px;
+
+}
+.swiper__wrapper{
+    display: flex;
+    align-items: stretch;
+}
+
+.swiper-pagination-bullet {
+    background-color: #333333;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #F1C761;
+}
+
+/* .check{
+    background-image:url('../../assets/images/background.png');
+    padding:30px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 80%;
+}
+.check img{
+    height: 288px;
+    width: 100%;
+} */

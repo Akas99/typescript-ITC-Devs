@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Inter:wght@500&family=Jost:wght@400;700&display=swap');
+:root{
+  --reglar-font-family:'Jost', sans-serif;
+  --regular-font-style:normal;
+  --regular-font-weight:400px;
+  --regular-color:#FFFFFF;
+  /* --secondary-font-family:'Caveat', cursive; */
+  /* --secondary-color:#F1C761; */
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: var(--reglar-font-family);
+  font-style: var(--regular-font-style);
+  font-weight: var(--regular-font-weight);
+  font-size: 16px;
+  color: #8F8F8F;
+  background-color:  #1E1E1E;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  margin: 0 -15px;
 }
 
-.App-link {
-  color: #61dafb;
+.col-6 {
+  width: 50%;
+  padding: 0 15px;
+}
+.col-2-4{
+  width: 20%;
+  padding: 0 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+h3 {
+  font-family: 'Caveat', cursive;
+  font-style: var(--regular-font-style);
+  font-weight: var(--regular-font-weight);
+  font-size: 40px;
+  color: #F1C761;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 55px;
+  color: var(--regular-color);
+  line-height: 55px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 46px;
+  color: var(--regular-color);
+}
+button{
+  cursor: pointer;
+}
+@media screen and (max-width: 1440px){
+  .container{
+    max-width: 1140px;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media screen and (max-width: 1200px){
+  .container{
+    max-width: 960px;
+  }
+}
+@media screen and (max-width: 992px){
+  .container{
+    max-width: 720px;
+  }
+}
+@media screen and (max-width: 768px){
+  .container{
+    max-width: 540px;
+  }
+}
+@media screen and (max-width: 576px){
+  .container{
+    max-width: none;
+    padding: 0 15px;
+  }
+  h2{
+    font-size: 33px;
+  }
+  h3{
+    font-size: 28px;
   }
 }

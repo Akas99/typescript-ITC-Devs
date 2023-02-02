@@ -1,0 +1,93 @@
+@mixin sizes($height,$width){
+    height: $height;
+    width: $width;
+}
+
+.technologies {
+    padding: 100px 0 0;
+
+    .technologies__container {
+        p {
+            margin: 30px 0 80px;
+        }
+
+        .technologies__row {
+            max-width: 100%;
+            // justify-content: space-evenly;
+            margin: 0 auto;
+            // column-gap: 20px;
+            row-gap: 0;
+            .technologies__box {
+                // width: 20%;
+                // padding: 20px;
+                // height: 165px;
+                @include sizes(165px,20%);
+                // background-color: #323232;
+                // background-color: red;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 8px;
+                img {
+                    // width: 70%;
+                    // height: 80%;
+                    @include sizes(80%,70%);
+                }
+            }
+            @media screen and (max-width:1200px){
+                .technologies__box{
+                    height: 140px;
+                    img {
+                        // width: 65%;
+                        // height: 80%;
+                        @include sizes(80%,65%);
+                    }
+                }
+            }
+            @media screen and (max-width:992px){
+                .technologies__box{
+                    height: 115px;
+                    img {
+                        // width: 96px;
+                        // height: 85px;
+                        @include sizes(85px,96px);
+                    }
+                }
+            }
+            @media screen and (max-width:768px){
+                justify-content: space-between;
+                .technologies__box{
+                    // width: 16%;
+                    height: 90px;
+                    img {
+                        // width: 80px;
+                        // height: 69px;
+                        @include sizes(69px,80px);
+                    }
+                }
+            }
+            @media screen and (max-width:576px){
+                .technologies__box{
+                    // width: 14%;
+                    height: 65px;
+                    img {
+                        // width: 64px;
+                        // height: 55px;
+                        @include sizes(55px,64px);
+                    }
+                }
+            }
+            @media screen and (max-width:468px){
+                .technologies__box{
+                   
+                    img {
+                        // width: 80%;
+                        // height: 80%;
+                        @include sizes(80%,80%);
+                    }
+                }
+            }
+            
+        }
+    }
+}

@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import AboutUs from './components/AboutUs/AboutUs'
+import Advertisement from './components/Advertisement/Advertisement'
+import Amount from './components/Amount/Amount'
+// import Answers from './components/Answers/Answers'
+import Charity from './components/Charity/Charity'
+import Contacts from './components/Contacts/Contacts'
+import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
+import Main from './components/Main/Main'
+import Partners from './components/Partners/Partners'
+import Projects from './components/Projects/Projects'
+import Ribbon from './components/Ribbon/Ribbon'
+import Services from './components/Services/Services'
+import Team from './components/Team/Team'
+import Technologies from './components/Technologies/Technologies'
+import Vacancies from './components/Vacancies/Vacancies'
 
-function App() {
+
+export default function App() {
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div>
+      <Header />
+      <Main />
+      <Amount />
+      <AboutUs />
+      <Services />
+      <Projects />
+      <Partners />
+      {/* <Answers/> */}
+      <Technologies />
+      <Ribbon />
+      <Advertisement />
+      <Team />
+      <Vacancies />
+      <Charity />
+      <Contacts />
+      <Advertisement second />
+      <Footer />
 
-export default App;
+
+    </div>
+  )
+}

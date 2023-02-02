@@ -1,0 +1,115 @@
+@mixin margin-color($margin,$color){
+    margin: $margin;
+    color: $color;
+}
+@mixin backgrounds($size,$position){
+    background-size: $size;
+    background-position: $position;
+}
+@mixin sizes($height,$width){
+    height: $height;
+    width: $width;
+}
+
+.charity {
+    padding: 116px 0 0;
+
+    >div {
+        background-image: url('../../assets/images/backgroundCharity.png');
+        // height: 700px;
+        background-repeat: no-repeat;
+        @include backgrounds(80% 70%, 50% 100%);
+        padding: 0 0 60px;
+
+        h3 {
+            margin: 0 10% 0;
+        }
+
+        .charity__box {
+
+            background-color: #FFFFFF;
+            width: 73%;
+            margin: 70px auto 0;
+            display: flex;
+            flex-direction: column;
+            border-radius: 6px;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            padding: 40px 15px;
+
+            img {
+                @include sizes(215px,255px);
+            }
+            >p{
+                font-size: 22px;
+            }
+            >p:first-of-type {
+                font-weight: 700;
+                font-size: 24px;
+                @include margin-color(35px 0 40px, #323232);
+            }
+            >p:nth-of-type(3), >p:nth-of-type(4){
+                color: red;
+                color: #000000;
+            }
+            >a{
+                text-decoration: none;
+                font-size: 22px;
+            }
+            >a:first-of-type{
+                @include margin-color(0 0 20px, #323232);
+            }
+            >a:last-of-type{
+                @include margin-color(20px 0 0, #000000);
+            }
+        }
+        @media screen and (max-width: 992px){
+            padding: 0 0 55px;
+            .charity__box{
+                padding: 30px 15px;
+                img {
+                    @include sizes(195px,235px);
+                }
+                >a{
+                    font-size: 18px;
+                }
+                >p{
+                    font-size: 18px;
+                }
+                >p:first-of-type{
+                    font-size: 20px;
+                }
+            }
+            
+        }
+        @media screen and (max-width: 768px){
+            @include backgrounds(100% 70%, 50% 100%);
+            
+            .charity__box{
+                width: 90%;
+            }
+        }
+        @media screen and (max-width: 768px){
+            padding: 0 0 35px;
+            .charity__box{
+                padding: 30px 15px;
+                img {
+                    @include sizes(175px,215px);
+                }
+                >a{
+                    font-size: 16px;
+                }
+                >p{
+                    font-size: 16px;
+                }
+                >p:first-of-type{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 768px){
+        padding: 100px 15px 0;  
+    }
+}

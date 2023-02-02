@@ -1,0 +1,172 @@
+@mixin sizes($height, $width) {
+    height: $height;
+    width: $width;
+}
+
+@mixin fonts($weight, $size) {
+    font-weight: $weight;
+    font-size: $size;
+}
+
+@mixin borderRadius-backgroundColor($radius, $color) {
+    border-radius: $radius;
+    background-color: $color;
+}
+
+@mixin grids($columns,$areas) {
+    grid-template-columns: $columns;
+    grid-template-areas: $areas;
+}
+
+.advertisement,
+.advertisementSecond {
+    padding: 100px 0 0;
+
+    .advertisement__container {
+        display: grid;
+        padding: 112px 70px;
+        width: 100%;
+        @include borderRadius-backgroundColor(16px, #F1C761);
+        place-content: center;
+        @include grids(auto 1fr 25%,'first second btn' );
+        gap: 30px;
+
+
+
+        div:first-of-type {
+            @include sizes(96px, 96px);
+            @include borderRadius-backgroundColor(50%, #1E1E1E);
+            grid-area: first;
+
+
+        }
+
+        div:last-of-type {
+            color: #272237;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            grid-area: second;
+
+            p:first-of-type {
+                @include fonts(700, 40px);
+            }
+
+            p:last-of-type {
+                font-size: 22px;
+            }
+        }
+
+        button {
+            background: #1E1E1E;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            text-transform: uppercase;
+            @include fonts(700, 14px);
+            color: #FFFFFF;
+            @include sizes(48px, auto);
+            align-self: center;
+            justify-self: self-end;
+            padding: 14px 56px;
+            grid-area: btn;
+        }
+
+        @media screen and (max-width: 992px) {
+            padding: 40px 30px;
+
+            // gap: 30px;
+            div:first-of-type {
+                align-self: center;
+                @include sizes(70px, 70px);
+            }
+
+            div:last-of-type {
+                p:first-of-type {
+                    font-size: 30px;
+                }
+
+                p:last-of-type {
+                    font-size: 18px;
+                }
+            }
+
+            button {
+                // font-size: 12px;
+                padding: 14px 26px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            padding: 40px 10px;
+
+            // gap: 15px;
+            div:first-of-type {
+                @include sizes(60px, 60px);
+            }
+
+            div:last-of-type {
+                p:first-of-type {
+                    @include fonts(400, 25px);
+                }
+
+                p:last-of-type {
+                    font-size: 16px;
+                }
+            }
+
+            button {
+                font-size: 12px;
+                padding: 14px 20px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            padding: 20px 8px;
+            gap: 10px;
+
+            div:first-of-type {
+                @include sizes(50px, 50px);
+            }
+
+            div:last-of-type {
+                p:first-of-type {
+                    @include fonts(400, 16px);
+                }
+
+                p:last-of-type {
+                    font-size: 10px;
+                }
+            }
+
+            button {
+                font-size: 10px;
+                padding: 12px 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            padding: 20px 10px;
+            @include grids(1fr 25%,'second btn' );
+
+            div:first-of-type {
+                display: none;
+            }
+
+            button {
+                font-size: 8px;
+                padding: 5px 10px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        padding: 100px 15px 0;
+    }
+}
+
+.advertisementSecond {
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+}

@@ -1,0 +1,105 @@
+
+
+.team {
+    padding: 116px 0 0;
+
+    .team__container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        // align-items: stretch;
+
+        .team__title {
+            width: 49%;
+            
+        }
+        .team__text{
+            display: flex;
+            align-items: center;
+
+            width: 49%;
+            
+        }
+        
+
+        @media screen and (max-width: 992px) {
+            flex-direction: column;
+
+            >div {
+                width: 100% !important;
+                
+            }
+
+            
+        }
+
+        .team__swiper {
+            .team__slide {
+                height: auto !important;
+
+                .team__box {
+                    // background-image: url('../../assets/images/background.png');
+                    // padding: 30px;
+                    // background-repeat: no-repeat;
+                    // background-position: bottom;
+                    // background-size: 100% 75%;
+                    // height: 450px;
+
+
+                    // img {
+                    //     height: 258px;
+                    //     width: 100%;
+                    // }
+
+                    background-color: #323232;
+                    border-radius: 8px;
+                    padding: 174px 30px 30px;
+                    margin-top: 174px;
+                    background-repeat: no-repeat;
+                    background-position: bottom;
+                    background-size: 100% 75%;
+                    //height: 530px;
+                    position: relative;
+                    height: calc(100% - 174px);
+                    // box-sizing: border-box;
+
+                    img {
+                        height: 288px;
+                        width: calc(100% - 60px);
+                        position: absolute;
+                        top: -144px;
+                    }
+
+                    ul li {
+                        list-style: georgian inside url('../../assets/images/hexagon.svg');
+                    }
+                    @media screen and (max-width: 576px){
+                        padding: 174px 50px 30px;
+                        img{
+                            width: calc(100% - 100px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    // >button {
+    //     text-align: center;
+    //     text-transform: uppercase;
+    //     background-color: transparent;
+    //     border: 1px solid rgba(255, 255, 255, 0.5);
+    //     border-radius: 24px;
+    //     padding: 14px 56px;
+    //     margin: 40px auto 0;
+    //     font-weight: 700;
+    //     font-size: 14px;
+    //     color: #FFFFFF;
+    //     position: absolute;
+    //     left: 0;
+    //     right: 0;
+    //     width: 220px;
+    // }
+}

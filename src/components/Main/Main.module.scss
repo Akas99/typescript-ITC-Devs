@@ -1,0 +1,195 @@
+@mixin sizes($height,$width){
+    height: $height;
+    width: $width;
+}
+@mixin flex($display,$j-s){
+    display: $display;
+    justify-content: $j-s;
+}
+
+.main {
+    // width: 100%;
+    // height: 100vh;
+    @include sizes(100vh,100%);
+    &__container {
+        // display: flex;
+        // justify-content: space-between;
+        @include flex(flex,space-between);
+        // align-items: center;
+        // width: 100%;
+        // height: 100%;
+        @include sizes(100%,100%);
+        padding: 120px 0 80px;
+
+        @media screen and (max-width: 992px) {
+            padding: 120px 15px 80px;
+        }
+
+        @media screen and (max-width: 768px) {
+            align-items: center;
+        }
+
+
+        .main__box1 {
+            // display: flex;
+            flex-direction: column;
+            width: 100%;
+            // justify-content: center;
+            @include flex(flex,center);
+
+
+
+            button {
+                background-color: #F1C761;
+                border-radius: 24px;
+                // width: 315px;
+                // height: 50px;
+                @include sizes(50px,315px);
+                padding: 16px 24px;
+                color: #1E1E1E;
+                margin: 32px 0 0;
+                font-weight: 700;
+                font-size: 14px;
+                text-align: center;
+                text-transform: uppercase;
+                cursor: pointer;
+
+            }
+
+            .main__logoBtn {
+                // width: 190px;
+                // height: 75px;
+                @include sizes(75px,190px);
+                display: block;
+                margin: 30px 0 0 ;
+            }
+
+            @media screen and (max-width: 1200px) {
+                h1 {
+                    font-size: 44px;
+                }
+            }
+
+            @media screen and (max-width: 992px) {
+                h1 {
+                    font-size: 55px;
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
+        }
+
+        .main__box2 {
+            // display: flex;
+            flex-direction: column;
+            align-items: center;
+            // justify-content: center;
+            @include flex(flex,center);
+            width: 100%;
+            // height: calc(100vh - 100px);
+
+            button {
+                background-color: #F1C761;
+                border-radius: 24px;
+                // width: 315px;
+                // height: 50px;
+                @include sizes(50px,315px);
+                padding: 16px 24px;
+                color: #1E1E1E;
+                margin: 25px 0 0;
+                font-weight: 700;
+                font-size: 14px;
+                text-align: center;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+
+            img {
+                // width: 290px;
+                // height: 410px;
+                @include sizes(410px,290px);
+            }
+
+            >div {
+                display: none;
+
+                // height: 50%;
+                @media screen and (max-width: 768px) {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                @media screen and (max-width: 576px) {
+                    row-gap: 15px;
+                }
+            }
+
+            @media screen and (max-width: 992px) {
+                img {
+                    height: 535px;
+                    // width: 80%;
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                row-gap: 15px;
+
+                h1 {
+                    font-size: 44px;
+                    text-align: center;
+                }
+
+                h3 {
+                    font-size: 35px;
+                    text-align: center;
+                }
+
+                img {
+                    
+                    // padding: 0 0 20px 0;
+                    // width: 50%;
+                    // height: 50%;
+                    @include sizes(50%,50%);
+                }
+
+                button {
+                    width: 270px;
+                    padding: 8px 12px;
+                    font-size: 12px;
+                    margin: 20px 0 0;
+                }
+            }
+
+            @media screen and (max-width: 576px) {
+                h1 {
+                    font-size: 25px;
+                }
+
+                h3 {
+                    font-size: 25px;
+                }
+
+                img {
+                    
+                    // padding: 0 0 10px 0;
+                    // height: 50%;
+                    // width: 40%;
+                    @include sizes(50%,40%);
+                }
+
+                button {
+                    width: 250px;
+                    margin: 10px 0 0;
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                height: calc(100vh - 100px);
+            }
+        }
+        
+    }
+}

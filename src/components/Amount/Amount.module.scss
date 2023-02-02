@@ -1,0 +1,50 @@
+@mixin fonts($weight,$size){
+    font-weight: $weight;
+    font-size: $size;
+}
+
+.amount {
+    padding: 90px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    >img{
+        display: none;
+    }
+    .amount__container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        .amount__box {
+            text-align: center;
+
+            p {
+                // font-weight: 700;
+                // font-size: 24px;
+                @include fonts(700, 24px);
+                color: #FFFFFF;
+            }
+
+        }
+
+        .amount__box p:first-child {
+            // font-weight: 700;
+            // font-size: 56px;
+            @include fonts(700, 56px);
+        }
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+            row-gap: 30px;
+        }
+    }
+    @media screen and (max-width: 768px){
+        >img{
+            margin: 100px 0 0;
+            display: flex;
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
