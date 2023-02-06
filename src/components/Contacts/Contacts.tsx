@@ -1,13 +1,14 @@
+import { useAppSelector, useAppDispatch } from '../../hooks'
+import { handleToggle } from '../../store/slicers/modalSlice'
 import s from './Contacts.module.scss'
 import location from '../../assets/images/location.svg'
 import phone from '../../assets/images/phone.svg'
 import mail from '../../assets/images/mail.svg'
 import Modal from '../Modal/Modal'
-import { useAppSelector, useAppDispatch } from '../../hooks'
-import { handleToggle } from '../../store/slicers/mainSlice'
+
 
 export default function Contacts() {
-  const { toggle } = useAppSelector(state => state.main)
+  const { toggle } = useAppSelector(state => state.modal)
   const dispatch = useAppDispatch()
   const handleToggleUi = () => {
     dispatch(handleToggle())

@@ -1,6 +1,6 @@
+import { FC } from 'react'
 import s from './Modal.module.scss'
 import clip from '../../assets/images/clip.svg'
-import { useState, FC } from 'react'
 import telegram from '../../assets/images/telegramModal.png'
 import whatsapp from '../../assets/images/whatsappModal.png'
 

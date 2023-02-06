@@ -1,24 +1,38 @@
-import s from './Ribbon.module.scss'
 import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper";
+import { useAppDispatch } from '../../hooks';
+import { addEventRibbon } from '../../store/slicers/mainSlice';
+import { useInView } from 'react-intersection-observer';
+import { changeRibbonStatus } from '../../store/slicers/navActiveSlice';
+import s from './Ribbon.module.scss'
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation } from "swiper";
-import { useAppDispatch } from '../../hooks';
-import { addEventRibbon } from '../../store/slicers/mainSlice';
+
+
 
 export default function Ribbon() {
     const dispatch=useAppDispatch()
+    const { ref, inView } = useInView({
+      threshold: 0.3,
+    });
     useEffect(()=>{
         dispatch(addEventRibbon())
     },[dispatch])
+    useEffect(()=>{
+        if(inView){
+            dispatch(changeRibbonStatus("Лента событий"))
+        }else{
+            dispatch(changeRibbonStatus(""))
+        }
+    },[inView,dispatch])
+ 
     return (
-        <section id='ribbon' className={s.ribbon}>
+        <section ref={ref} id='ribbon' className={s.ribbon}>
             <div className="container">
                 <h3>Лента событий</h3>
                 <Swiper
-                // slidesPerView={2}
                 spaceBetween={60}
                 breakpoints={{
                     992: {

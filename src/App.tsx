@@ -2,7 +2,6 @@ import './App.css'
 import AboutUs from './components/AboutUs/AboutUs'
 import Advertisement from './components/Advertisement/Advertisement'
 import Amount from './components/Amount/Amount'
-// import Answers from './components/Answers/Answers'
 import Charity from './components/Charity/Charity'
 import Contacts from './components/Contacts/Contacts'
 import Footer from './components/Footer/Footer'
@@ -16,20 +15,17 @@ import Team from './components/Team/Team'
 import Technologies from './components/Technologies/Technologies'
 import Vacancies from './components/Vacancies/Vacancies'
 
-
 export default function App() {
-  
   
   return (
     <div>
-      <Header />
+      <Header/>
       <Main />
       <Amount />
-      <AboutUs />
-      <Services />
+      <AboutUs/>
+      <Services/>
       <Projects />
       <Partners />
-      {/* <Answers/> */}
       <Technologies />
       <Ribbon />
       <Advertisement />
@@ -39,8 +35,6 @@ export default function App() {
       <Contacts />
       <Advertisement second />
       <Footer />
-
-
     </div>
   )
 }

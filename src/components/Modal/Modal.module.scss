@@ -12,7 +12,6 @@
     align-items: center;
 
     .modal__wrap {
-        // height: 50vh;
         max-width: 70%;
         width: 100%;
         background-blend-mode: multiply;
@@ -88,9 +87,6 @@
         .modal__inp {
             display: flex;
             width: inherit;
-
-
-            // justify-content: space-between;
             p {
                 width: auto;
                 white-space: nowrap;
@@ -140,9 +136,7 @@
 
         label {
             color: #6A3693;
-            // background-color: violet;
             width: 272px;
-            // display: block;
             cursor: pointer;
             font-weight: 700;
             font-size: 24px;

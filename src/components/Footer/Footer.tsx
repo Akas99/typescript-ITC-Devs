@@ -4,7 +4,6 @@ import instagram from '../../assets/images/instagram.svg'
 import facebook from '../../assets/images/facebook.svg'
 import twitter from '../../assets/images/twitter.svg'
 import Navbar from '../Navbar/Navbar'
-import { navItems } from '../../config'
 
 
 export default function Footer() {

@@ -1,9 +1,26 @@
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
+import { useAppDispatch } from '../../hooks';
+import { changeCharityStatus } from '../../store/slicers/navActiveSlice';
 import s from './Charity.module.scss'
 import birds from '../../assets/images/birds.svg'
 
+
 export default function Charity() {
+  const dispatch=useAppDispatch()
+  const { ref, inView,  } = useInView({
+  
+    threshold: 0.3,
+  });
+  useEffect(()=>{
+    if(inView){
+      dispatch(changeCharityStatus("Благотворительность"))
+    }else{
+      dispatch(changeCharityStatus(""))
+    }
+  },[inView,dispatch])
   return (
-    <section id='charity' className={s.charity}>
+    <section ref={ref} id='charity' className={s.charity}>
         <div className="container">
             <h3>Благотворительность</h3>
             <div className={s.charity__box}>

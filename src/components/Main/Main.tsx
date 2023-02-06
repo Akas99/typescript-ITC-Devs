@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import { useAppSelector,useAppDispatch } from '../../hooks'
+import { handleToggleMain } from '../../store/slicers/modalSlice'
 import s from './Main.module.scss'
 import mainPic from '../../assets/images/mainPic.png'
 import itcButton from '../../assets/images/ITCbutton.svg'
 import Modal from '../Modal/Modal'
-import { useAppSelector,useAppDispatch } from '../../hooks'
-import { handleToggleMain } from '../../store/slicers/mainSlice'
+
 
 export default function Main() {
-  const {mainToggle}=useAppSelector(state=>state.main)
+  const {mainToggle}=useAppSelector(state=>state.modal)
   const dispatch=useAppDispatch()
   const handleToggleMainUi = () => {
     dispatch(handleToggleMain())

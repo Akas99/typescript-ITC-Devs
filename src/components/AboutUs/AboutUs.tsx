@@ -1,15 +1,24 @@
-import s from './AboutUs.module.scss'
 import { useInView } from 'react-intersection-observer';
-import Navbar from '../Navbar/Navbar';
+import { useEffect } from 'react';
+import { useAppDispatch } from '../../hooks';
+import { changeAboutUsStatus } from '../../store/slicers/navActiveSlice';
+import s from './AboutUs.module.scss'
+
 
 export default function AboutUs() {
-  const { ref, inView, entry } = useInView({
-    /* Optional options */
-    threshold: 0,
-  });
-  // console.log(inView);
-  // console.log(one);
+  const dispatch=useAppDispatch()
+  const { ref, inView} = useInView({
   
+    threshold: 0.3,
+  });
+
+  useEffect(() => {
+    if(inView){
+      dispatch(changeAboutUsStatus("О нас"))
+    } else {
+      dispatch(changeAboutUsStatus(""))
+    }
+  }, [inView, dispatch])
   return (
     <>
       <section ref={ref} id='aboutUs' className={s.aboutUs}>
@@ -27,7 +36,6 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
-      <Navbar/>
     </>
   )
 }

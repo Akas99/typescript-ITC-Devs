@@ -1,7 +1,6 @@
-import {createSlice,PayloadAction,createAsyncThunk,AnyAction} from "@reduxjs/toolkit";
+import {createSlice,createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
-import { config } from "process";
-import { AddEventRibbon,InitialState } from "../../types/types";
+import { AddEventRibbon,MainInitialState } from "../../types/types";
 
 export const addEventRibbon=createAsyncThunk<AddEventRibbon[],undefined>(
     'main/addEventRibbon',
@@ -16,9 +15,9 @@ export const addEventRibbon=createAsyncThunk<AddEventRibbon[],undefined>(
 
         // }
         try{
-            const response = await axios.get('http://165.22.49.123:2000/api/projects/',)
+            const response = await axios.get('http://192.168.31.30:8000/api/what_we_use/' )
             alert(';;')
-            console.log(response)
+            console.log(response.data)
             return response.data
         }catch(e:any){
             return rejectWithValue(e.message)
@@ -26,10 +25,7 @@ export const addEventRibbon=createAsyncThunk<AddEventRibbon[],undefined>(
     }
 )
 
-const initialState:InitialState={
-    mainToggle:false,
-    vacanciesToggle:false,
-    toggle:false,
+const initialState:MainInitialState={
     list:[],
     loading:false,
     error:null
@@ -37,17 +33,7 @@ const initialState:InitialState={
 const mainSlice = createSlice({
     name:'main',
     initialState,
-    reducers:{
-        handleToggleMain(state) {
-            state.mainToggle = !state.mainToggle
-        },
-        handleToggleVacancies(state){
-            state.vacanciesToggle=!state.vacanciesToggle
-        },
-        handleToggle(state){
-            state.toggle=!state.toggle
-        },
-    },
+    reducers:{},
     extraReducers:(builder) => {
         builder
         .addCase(addEventRibbon.pending, (state, action) => {
@@ -60,5 +46,5 @@ const mainSlice = createSlice({
         })
     }
 })
-export const {handleToggleMain,handleToggleVacancies,handleToggle,} = mainSlice.actions
+export const {} = mainSlice.actions
 export default mainSlice.reducer

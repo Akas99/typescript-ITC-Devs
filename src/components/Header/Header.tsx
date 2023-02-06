@@ -1,16 +1,15 @@
-import s from './Header.module.scss'
 import { useState, useEffect } from 'react'
-import logo from '../../assets/images/logo.svg'
-import arrow from '../../assets/images/Vector.svg'
-import Modal from '../Modal/Modal'
 import { useAppSelector, useAppDispatch } from '../../hooks'
-import { handleToggle } from '../../store/slicers/mainSlice'
+import { handleToggle } from '../../store/slicers/modalSlice'
+import s from './Header.module.scss'
+import logo from '../../assets/images/logo.svg'
+import Modal from '../Modal/Modal'
 import Navbar from '../Navbar/Navbar'
 
 export default function Header() {
   const [nav, setNav] = useState(false)
   const [scrollPosition, setScrollPosition] = useState(0)
-  const { toggle } = useAppSelector(state => state.main)
+  const { toggle } = useAppSelector(state => state.modal)
   const dispatch = useAppDispatch()
   const handleToggleUi = ():void => {
     dispatch(handleToggle())
@@ -28,7 +27,6 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-  // console.log(scrollPosition);
   
   return (
     <>
@@ -57,7 +55,6 @@ export default function Header() {
         <div className={s.header__nav}>
           <ul className={!nav ? `${s.nav}` : `${s.nav} ${s.showNav}`}>
             <Navbar
-              // handleToggleNav={handleToggleNav}
               headerNav
             />
           </ul>

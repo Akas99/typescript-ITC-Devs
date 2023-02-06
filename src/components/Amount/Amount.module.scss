@@ -20,8 +20,6 @@
             text-align: center;
 
             p {
-                // font-weight: 700;
-                // font-size: 24px;
                 @include fonts(700, 24px);
                 color: #FFFFFF;
             }
@@ -29,8 +27,6 @@
         }
 
         .amount__box p:first-child {
-            // font-weight: 700;
-            // font-size: 56px;
             @include fonts(700, 56px);
         }
 

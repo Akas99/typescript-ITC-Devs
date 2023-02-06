@@ -92,15 +92,12 @@
             }
 
             button {
-                // font-size: 12px;
                 padding: 14px 26px;
             }
         }
 
         @media screen and (max-width: 768px) {
             padding: 40px 10px;
-
-            // gap: 15px;
             div:first-of-type {
                 @include sizes(60px, 60px);
             }

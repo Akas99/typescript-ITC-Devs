@@ -34,12 +34,7 @@ $font-family-primary:'Inter', sans-serif;
                 display: none;
             }
 
-            // >label {
-            //     background-color: palevioletred;
-            // }
-
             select {
-                // display: none;
                 background-color: transparent;
                 border-color: transparent;
                 appearance: none;
@@ -197,12 +192,8 @@ $font-family-primary:'Inter', sans-serif;
                 flex-direction: column;
                 position: fixed;
                 max-width: 720px;
-                // height: 50%;
                 width: 213px;
-                // align-items: center;
                 text-align: start;
-                // justify-content: center;
-                // background-color: lightseagreen;
                 background-color: #323232;
                 top: 90px;
                 row-gap: 30px;
@@ -234,7 +225,6 @@ $font-family-primary:'Inter', sans-serif;
         .showNav {
             @media screen and (max-width: 992px) {
                 right: 0;
-                // height: 50%;
                 max-width: 100%;
 
             }
@@ -244,10 +234,6 @@ $font-family-primary:'Inter', sans-serif;
             padding: 0;
         }
     }
-
-    // @media screen and (max-width: 992px){
-    //     background: transparent;
-    // }
 }
 
 .header {

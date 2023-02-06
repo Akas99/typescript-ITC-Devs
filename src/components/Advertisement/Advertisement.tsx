@@ -1,15 +1,16 @@
-import s from './Advertisement.module.scss'
 import { FC } from 'react'
-import Modal from '../Modal/Modal'
 import { useAppSelector, useAppDispatch } from '../../hooks'
-import { handleToggle } from '../../store/slicers/mainSlice'
+import { handleToggle } from '../../store/slicers/modalSlice'
+import s from './Advertisement.module.scss'
+import Modal from '../Modal/Modal'
+
 
 interface AdvertisementProps {
   second?: boolean
 }
 
 const Advertisement: FC<AdvertisementProps> = ({ second }) => {
-  const { toggle } = useAppSelector(state => state.main)
+  const { toggle } = useAppSelector(state => state.modal)
   const dispatch = useAppDispatch()
   const handleToggleUi = () => {
     dispatch(handleToggle())

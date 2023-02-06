@@ -1,14 +1,30 @@
-import s from './Team.module.scss'
-import { useRef, useState } from "react";
+import { Grid, Pagination } from "swiper";
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
+import { useAppDispatch } from '../../hooks';
+import { changeTeamStatus } from '../../store/slicers/navActiveSlice';
 import { Swiper, SwiperSlide } from "swiper/react";
+import s from './Team.module.scss'
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
-import { Grid, Pagination } from "swiper";
+
 
 export default function Team() {
+  const dispatch = useAppDispatch()
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      dispatch(changeTeamStatus("Наша команда"))
+    } else {
+      dispatch(changeTeamStatus(""))
+    }
+  }, [inView, dispatch])
   return (
-    <section id='team' className={s.team}>
+    <section ref={ref} id='team' className={s.team}>
       <div className={`container ${s.team__container}`}>
         <div className={s.team__title}>
           <h3>Наша команда</h3>
@@ -119,8 +135,6 @@ export default function Team() {
 
         </Swiper>
       </div>
-
-      {/* <button>развернуть</button> */}
     </section>
   )
 }

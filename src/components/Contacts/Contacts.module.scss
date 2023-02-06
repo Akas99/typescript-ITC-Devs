@@ -1,11 +1,21 @@
-
+@mixin sizes($height,$width){
+    height: $height;
+    width: $width;
+}
+@mixin color-fontSize($color,$size){
+    color: $color;
+    font-size: $size;
+}
+@mixin flex($flex,$content){
+    display: $flex;
+    justify-content:$content;
+}
 
 .contacts {
     padding: 110px 0 0;
 
     .contacts__container {
-        display: flex;
-        justify-content: space-between;
+        @include flex(flex,space-between );
         flex-wrap: wrap;
         @media screen and (max-width: 768px){
             row-gap: 30px;
@@ -14,8 +24,7 @@
         .contacts__box {
             width: 49%;
             iframe{
-                width: 100%;
-                height: 460px;
+                @include sizes(460px,100% );
                 border-radius: 16px;
                 border: none;
             }
@@ -36,12 +45,9 @@
             }
         }
         .contacts__box:last-of-type {
-            display: flex;
             flex-direction: column;
-            height: auto;
-            justify-content: center;
-            // align-items: center;
-            width: 40%;
+            @include flex(flex,center);
+            @include sizes(auto,40% );
             @media screen and (max-width: 768px){
                 width: 100%;
                 align-items: center;
@@ -54,20 +60,17 @@
                 display: flex;
                 align-items: center;
                 column-gap: 20px;
-                font-size: 20px;
                 font-style: normal;
                 font-weight: 400;
-                color: #FFFFFF;
+                @include color-fontSize(#FFFFFF,20px );
 
                 a {
                     text-decoration: none;
-                    color: #FFFFFF;
-                    font-size: 20px;
+                    @include color-fontSize(#FFFFFF,20px );
                 }
 
                 img {
-                    width: 48px;
-                    height: 48px;
+                    @include sizes(48px,48px);
                 }
             }
 
@@ -76,15 +79,14 @@
             }
             >button{
                 text-transform: uppercase;
-                color: #FFFFFF;
                 background-color: transparent;
                 border: 1px solid rgba(255, 255, 255, 0.5);
                 border-radius: 24px;
                 padding: 14px 56px;
                 margin: 20px 0 0;
                 font-weight: 700;
-                font-size: 14px;
                 width: 220px;
+                @include color-fontSize(#FFFFFF,14px );
             }
 
         }

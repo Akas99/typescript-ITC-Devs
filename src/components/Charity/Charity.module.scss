@@ -16,7 +16,6 @@
 
     >div {
         background-image: url('../../assets/images/backgroundCharity.png');
-        // height: 700px;
         background-repeat: no-repeat;
         @include backgrounds(80% 70%, 50% 100%);
         padding: 0 0 60px;

@@ -1,10 +1,13 @@
-import s from './Partners.module.scss'
-import { useRef, useState } from "react";
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
+import { useAppDispatch } from '../../hooks';
+import { changePartnersStatus } from '../../store/slicers/navActiveSlice';
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Grid } from "swiper";
+import s from './Partners.module.scss'
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, Pagination, Grid } from "swiper";
 import "swiper/css/grid";
 import partners1 from '../../assets/images/nihao.svg'
 import parnters2 from '../../assets/images/kyrgyzstan.svg'
@@ -16,9 +19,23 @@ import partners7 from '../../assets/images/limitless.svg'
 import partners8 from '../../assets/images/stores.svg'
 
 
+
 export default function Partners() {
+    const dispatch=useAppDispatch()
+  const { ref, inView, entry } = useInView({
+    threshold: 0.3,
+  });
+
+  useEffect(()=>{
+    if(inView){
+        dispatch(changePartnersStatus("Партнеры и клиенты"))
+    }else{
+        dispatch(changePartnersStatus(""))
+    }
+    
+  },[inView,dispatch])
     return (
-        <section id='partners' className={s.partners}>
+        <section ref={ref} id='partners' className={s.partners}>
             <div className="container">
                 <h3>Партнеры и клиенты</h3>
                 <Swiper
@@ -39,7 +56,6 @@ export default function Partners() {
                         slidesPerView: 1,
                         spaceBetween: 60,
                         autoplay:false,
-                        // pagination:true
                     }
                 }}
                 grid={{

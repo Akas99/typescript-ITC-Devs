@@ -1,26 +1,38 @@
-import s from './Vacancies.module.scss'
-import { useRef, useState } from "react";
+import { handleToggleVacancies } from '../../store/slicers/modalSlice'
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { changeVacanciesStatus } from '../../store/slicers/navActiveSlice';
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Grid, Pagination } from "swiper";
+import s from './Vacancies.module.scss'
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
-import { Grid, Pagination } from "swiper";
 import Modal from '../Modal/Modal';
-import { useAppSelector,useAppDispatch } from '../../hooks'
-import { handleToggleVacancies } from '../../store/slicers/mainSlice'
 
 
 
 export default function Vacancies() {
-  const {vacanciesToggle}=useAppSelector(state=>state.main)
+  const {vacanciesToggle}=useAppSelector(state=>state.modal)
   const dispatch=useAppDispatch()
   const handleToggleVacanciesUi=()=>{
     dispatch(handleToggleVacancies())
   }
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+  });
+  useEffect(()=>{
+    if(inView){
+      dispatch(changeVacanciesStatus("Вакансии"))
+    }else{
+      dispatch(changeVacanciesStatus(""))
+    }
+  },[inView,dispatch])
 
   return (
     <>
-      <section id='vacancies' className={s.vacancies}>
+      <section ref={ref} id='vacancies' className={s.vacancies}>
         <div className={`container ${s.vacancies__container}`}>
           <h3>Вакансии</h3>
           <h2>Станьте частью технологической команды и примите участие в настоящем для трансформации будущего вместе с ITCdevs</h2>
@@ -102,7 +114,6 @@ export default function Vacancies() {
               </div>
             </SwiperSlide>
           </Swiper>
-          {/* <button>развернуть</button> */}
           <h2>“Дружеская атмосфера и желание нести добро в мир является формулой прогрессивных разработок ITC devs”</h2>
         </div>
       </section>

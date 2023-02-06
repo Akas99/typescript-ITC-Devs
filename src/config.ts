@@ -41,12 +41,7 @@ export const navItems = [
         id:1
     },
     {
-        name: 'Наша команда',
-        href:'#team',
-        id:2
-    },
-    {
-        name: 'Портфолио пректов',
+        name: 'Портфолио проектов',
         href:'#projects',
         id:3
     },
@@ -56,14 +51,19 @@ export const navItems = [
         id:4
     },
     {
-        name: 'Вакансии',
-        href:'#vacancies',
-        id:5
-    },
-    {
         name: 'Лента событий',
         href:'#ribbon',
         id:6
+    },
+    {
+        name: 'Наша команда',
+        href:'#team',
+        id:2
+    },
+    {
+        name: 'Вакансии',
+        href:'#vacancies',
+        id:5
     },
     {
         name: 'Благотворительность',

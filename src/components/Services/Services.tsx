@@ -1,36 +1,37 @@
-import s from './Services.module.scss'
-
-import { useRef, useState } from "react";
+import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Grid, Pagination, } from "swiper";
+import { useInView } from 'react-intersection-observer';
+import { useAppDispatch } from '../../hooks';
+import {changeServicesStatus } from '../../store/slicers/navActiveSlice';
+import s from './Services.module.scss'
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
-import { Grid, Pagination, } from "swiper";
 import './Services.css'
 
 
 
 export default function Services() {
+  const dispatch=useAppDispatch()
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+  });
+
+  useEffect(() => {
+    if(inView){
+      dispatch(changeServicesStatus("Услуги"))
+    } else {
+      dispatch(changeServicesStatus(""))
+    }
+  }, [inView,dispatch])
+
   return (
-    <section id='services' className={s.services}>
+    <section ref={ref} id='services' className={s.services}>
       <div className={`container ${s.services__container}`}>
         <h3>Наши Услуги</h3>
         <h2>Простые решения</h2>
         <p>Веб продукты ITC devs это решения в виде мобильных, приложений для IOS и Android, Веб сайты, корпоративные базы данных, дизайн веб сайта, crm system. Также ITCdevs готов участвовать в мало распространенных, нестандартных и даже уникальных кейсах. Например, когда имеется frontend и backend сайта, но нет инструментария соединяющий их между собой. ITCdevs разработает для Вас прекрасный API. ITCdevs найдет решение и для Вашей любой задачи.</p>
-        {/* <h2>Мы разрабатываем</h2>
-        <p>Веб продукты, а так же Мобильные приложения написанные для IOS и Android. Веб продукты, а так же Мобильные приложения написанные для IOS и Android</p> */}
-        {/* <div className={s.services__wrap}>
-          <div className={s.services__box}>
-            <img src="https://dominicarrojado.com/react-typescript-swiper/pic5.jpeg" alt="" />
-            <p>IOS App</p>
-            <p>Bars that fill to capacity sometimes implement a cover charge or a minimum drink-purchase requirement during their peak hours.</p>
-          </div>
-          <div className={s.services__box}>
-            <img src="https://dominicarrojado.com/react-typescript-swiper/pic5.jpeg" alt="" />
-            <p>Android App</p>
-            <p>Bars that fill to capacity sometimes implement a cover charge or a minimum drink-purchase requirement during their peak hours.</p>
-          </div>
-        </div> */}
         <Swiper
         slidesPerView={2}
         breakpoints={{
@@ -99,9 +100,6 @@ export default function Services() {
       </Swiper>
       </div>
 
-      
-
-      {/* <button>Все услуги</button> */}
     </section>
   )
 }
