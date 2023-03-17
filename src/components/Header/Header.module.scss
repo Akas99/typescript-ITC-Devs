@@ -91,7 +91,6 @@ $font-family-primary:'Inter', sans-serif;
 
 
 
-
             span {
                 @include sizes(4px,100%);
                 background-color: #FFFFFF;
@@ -103,16 +102,18 @@ $font-family-primary:'Inter', sans-serif;
                 content: '';
                 position: absolute;
                 @include sizes(100%,100%);
-                background-color: #FFFFFF;
                 transition: .8s;
             }
 
             span:before {
                 top: -16px;
+                background-color: #FFFFFF;
             }
 
             span:after {
                 top: 16px;
+                background-color: #F1C761;
+                
             }
 
             @media screen and (max-width: 992px) {

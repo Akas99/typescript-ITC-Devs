@@ -1,6 +1,6 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import { navItems } from "../../config"
-import { useAppDispatch, useAppSelector } from '../../hooks'
+import { useAppSelector } from '../../hooks'
 import s from '../Header/Header.module.scss'
 
 
@@ -19,9 +19,8 @@ const Navbar: FC<NavbarProps> = ({
     secondFooterNav,
     thirdFooterNav,
 }) => {
-    const dispatch = useAppDispatch()
     const { aboutUsStatus, servicesStatus, teamStatus, projectStatus, partnersStatus, vacanciesStatus, ribbonStatus, charityStatus } = useAppSelector(state => state.navActive)
-    const [active, setActive] = useState(-1)
+    // const [active, setActive] = useState(-1)
     const lolo = (name: string, href: string, index: number, firstNum: number, secondNum: number) => {
         if (index < firstNum && index >= secondNum) {
             return (
@@ -38,7 +37,6 @@ const Navbar: FC<NavbarProps> = ({
                 key={index}
             >
                 <a
-                    onClick={(): void => { setActive(index) }}
                     href={el.href} 
                     className={aboutUsStatus === el.name 
                         || servicesStatus===el.name

@@ -15,7 +15,7 @@ export const addEventRibbon=createAsyncThunk<AddEventRibbon[],undefined>(
 
         // }
         try{
-            const response = await axios.get('http://192.168.31.30:8000/api/what_we_use/' )
+            const response = await axios.get('http://165.22.49.123:/ad/' )
             alert(';;')
             console.log(response.data)
             return response.data
